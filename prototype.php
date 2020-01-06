@@ -9,14 +9,15 @@
 ?>
 
 <?php
- 
-    Init('API-WPAY-9b1763d8-2906-11ea-980b-e470b80f3a7e', 'hcamara8@outlook.com');
+    $YOUR_WARIPAY_API_KEY = '...';
+    $YOUR_WARIPAY_EMAIL_ADDRESS = '...';
+    Init($YOUR_WARIPAY_API_KEY, $YOUR_WARIPAY_EMAIL_ADDRESS);
 
     function Create_Transaction($customer_email, $amount){
         OPEN_WPAY_SESSION();
         return CREATE_WPAY_TRANSACTION($customer_email, $amount);
     }
 
-    echo Create_Transaction('hamadi.camara@outlook.com', 100)
+    echo Create_Transaction('your_customer_email@waripay.io', 100)
 
 ?>
