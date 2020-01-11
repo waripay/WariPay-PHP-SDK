@@ -4,7 +4,7 @@
         $header = [
             'Content-Type: application/json',
             'Authorization: Bearer '.$GLOBALS['SESSION_TOKEN']];
-
+            
         // make request
         $response = json_decode(http(GET_TRANSACTION_CREATE_ENDPOINT(),$header,json_encode([
             "destination"=> $GLOBALS['ACCOUNT_EMAIL_ADDRESS'],

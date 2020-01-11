@@ -20,7 +20,7 @@
         if($GLOBALS['MODE'] == 'PROD' || $GLOBALS['MODE'] == 'PRODUCTION'){
             $GLOBALS['BASE_URL'] = $GLOBALS['BASE_URL_PRODUCTION'];
         }else {
-            $GLOBALS['BASE_URL'] = $BASE_URL_SANDBOX;
+            $GLOBALS['BASE_URL'] = $GLOBALS['BASE_URL_SANDBOX'];
         }
     }
 

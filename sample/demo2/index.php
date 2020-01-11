@@ -10,17 +10,27 @@
 
 <?php
 
-	Init('API-WPAY-9b1763d8-2906-11ea-980b-e470b80f3a7e', 'hcamara8@outlook.com');
+$YOUR_WARIPAY_API_KEY = 'API-WPAY-ce56b8f8-3152-11ea-8cf3-0050560641f9';
+$YOUR_WARIPAY_EMAIL_ADDRESS = 'developer@waripay.io';
+$REDIRECT_SUCCESS_URL = 'https://waripay.io/#/Payment/return?code=200';
+$REDIRECT_ERROR_URL = 'https://waripay.io/#/Payment/return?code=500';
 
-	function Create_Transaction($customer_email, $amount){
-		OPEN_WPAY_SESSION();
-		return CREATE_WPAY_TRANSACTION($customer_email, $amount);
-	}
+// Turn on Sandbox mode
+$MODE = 'SANDBOX';
+INIT($YOUR_WARIPAY_API_KEY, $YOUR_WARIPAY_EMAIL_ADDRESS, $MODE);
+/////////////////////////
 
-	function Get_checkout_link($customer_email, $amount){
-		$transactionId = Create_Transaction($customer_email, $amount);
-		return 'https://www.waripay.io/#/Checkout/'.$transactionId;
-	}
+CONFIG_REDIRECT($REDIRECT_SUCCESS_URL, $REDIRECT_ERROR_URL);
+
+function Create_Transaction($customer_email, $amount){
+	OPEN_WPAY_SESSION();
+	return CREATE_WPAY_TRANSACTION($customer_email, $amount);
+}
+
+function Get_checkout_link($customer_email, $amount){
+	$transactionId = Create_Transaction($customer_email, $amount);
+	return 'https://www.waripay.io/#/Checkout/'.$transactionId;
+}
 
 ?>
 
